@@ -11,6 +11,10 @@
 *.js      text
 *.bat     text
 *.py      text
+*.shfbproj text
+*.aml     text
+*.content text
+*.items   text
 
 *.png binary
 *.gif binary
