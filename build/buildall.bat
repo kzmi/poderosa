@@ -6,7 +6,22 @@ if "%1" == "" (
   goto :end
 )
 
-call "%VS80COMNTOOLS%\vsvars32.bat"
+REM -- VS2013
+if exist "%VS120COMNTOOLS%vsvars32.bat" (
+  call "%VS120COMNTOOLS%\vsvars32.bat"
+  goto :startbuild
+)
+
+REM -- VS2005
+if exist "%VS80COMNTOOLS%vsvars32.bat" (
+  call "%VS80COMNTOOLS%vsvars32.bat"
+  goto :startbuild
+)
+
+echo "Visual Studio not found"
+goto :end
+
+:startbuild
 
 set CONFIGNAME=%1
 set PORTFORWARDING=%~dp0..\PortForwarding.sln
